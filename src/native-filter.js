@@ -1,10 +1,11 @@
 import React from 'react'
+import { ColorMatrix } from "gl-react-color-matrix";
 import { requireNativeComponent } from 'react-native'
 import { defaultStyle, checkStyle } from './style'
 
-const ColorMatrixImageFilter = requireNativeComponent('CMIFColorMatrixImageFilter')
+const ColorMatrixImageFilter = requireNativeComponent ? requireNativeComponent('CMIFColorMatrixImageFilter') : null
 
-export const NativeFilter = React.forwardRef(
+export const NativeFilter = ColorMatrixImageFilter ? React.forwardRef(
   ({ style, ...restProps }, ref) => {
     checkStyle(style)
 
@@ -16,4 +17,16 @@ export const NativeFilter = React.forwardRef(
       />
     )
   }
-)
+) : React.forwardRef(
+  ({ style, ...restProps }, ref) => {
+    checkStyle(style)
+
+    return (
+      <ColorMatrix matrix={[
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1
+      ]} />
+    )
+  }
