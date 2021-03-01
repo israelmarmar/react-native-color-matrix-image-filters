@@ -22,11 +22,16 @@ export const NativeFilter = ColorMatrixImageFilter ? React.forwardRef(
     checkStyle(style)
 
     return (
-      <ColorMatrix matrix={[
-        1, 0, 0, 0,
-        0, 1, 0, 0,
-        0, 0, 1, 0,
-        0, 0, 0, 1
-      ]} />
+      <ColorMatrix 
+        style={[defaultStyle.container, style]}
+        ref={ref}
+        {...restProps}
+        matrix={[
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1
+        ]} 
+      />
     )
   }
