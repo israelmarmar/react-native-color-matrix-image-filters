@@ -33,7 +33,8 @@
   },
   "dependencies": {
     "concat-color-matrices": "^1.0.0",
-    "gl-react-color-matrix": "git+https://github.com/israelmarmar/gl-react-color-matrix.git",
+    "gl-react": "^4.1.0",
+    "gl-react-dom": "^5.0.0",
     "rn-color-matrices": "^4.1.0"
   },
   "standard": {
