@@ -34,4 +34,4 @@ export const NativeFilter = ColorMatrixImageFilter ? React.forwardRef(
         ]} 
       />
     )
-  }
+  });
